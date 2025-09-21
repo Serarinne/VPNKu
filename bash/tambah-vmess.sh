@@ -11,9 +11,11 @@ if [ -z "$CLIENT_EMAIL" ]; then
     return
 fi
 
-if jq -e '.inbounds[0].settings.clients[] | select(.email == "'"$CLIENT_EMAIL"'")' /usr/local/etc/xray/config.json > /dev/null; then
-    echo "Klien dengan email '$CLIENT_EMAIL' sudah ada."
-    return
+CLIENT_EXISTS=$(grep -w $CLIENT_EMAIL /usr/local/etc/xray/config.json | wc -l)
+
+if [[ ${CLIENT_EXISTS} == '1' ]]; then
+   echo "Klien dengan email '$CLIENT_EMAIL' sudah ada."
+   return
 fi
 
 NEW_UUID=$(xray uuid)
