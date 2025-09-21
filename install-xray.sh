@@ -45,34 +45,7 @@ cat <<EOF > /usr/local/etc/xray/config.json
                 }
             },
             "tag": "Vmess-Connection"
-        },
-        {
-            "listen": "127.0.0.1",
-            "port": 7002,
-            "protocol": "vmess",
-            "settings": {
-                "clients": [
-                    {"id": "60d9785f-0e59-4988-aee1-322351b4de7f", "alterId": 0, "level": 0, "security": "auto", "email": "Admin-TLS"}
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "wsSettings": {
-                    "path": "/vmess-tls"
-                },
-                "security": "tls",
-                "tlsSettings": {
-                "serverName": "${DOMAIN}",
-                "certificates": [
-                    {
-                        "certificateFile": "/etc/vps-data/cert.crt",
-                        "keyFile": "/etc/vps-data/cert.key"
-                    }
-                ]
-            },
-            "tag": "Vmess-Connection-TLS"
         }
-    }
     ],
     "outbounds": [
         {
