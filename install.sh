@@ -25,7 +25,7 @@ apt autoremove -y
 
 apt update -y
 
-apt-get --reinstall --fix-missing install sudo dpkg psmisc socat jq ruby wondershaper python3 tmux nmap bzip2 gzip coreutils screen rsyslog iftop htop zip unzip wget vim net-tools curl nano sed gnupg gnupg1 bc apt-transport-https build-essential gcc g++ automake make autoconf perl m4 dos2unix dropbear libreadline-dev zlib1g-dev libssl-dev dirmngr libxml-parser-perl neofetch git lsof iptables iptables-persistent screenfetch openssl easy-rsa fail2ban vnstat libsqlite3-dev cron bash-completion ntpdate xz-utils gnupg2 dnsutils lsb-release chrony lolcat -y
+apt install sudo dpkg psmisc socat jq ruby wondershaper python3 tmux nmap bzip2 gzip coreutils screen rsyslog iftop htop zip unzip wget vim net-tools curl nano sed gnupg gnupg1 bc apt-transport-https build-essential gcc g++ automake make autoconf perl m4 dos2unix dropbear libreadline-dev zlib1g-dev libssl-dev dirmngr libxml-parser-perl neofetch git lsof iptables iptables-persistent screenfetch openssl easy-rsa fail2ban vnstat libsqlite3-dev cron bash-completion ntpdate xz-utils gnupg2 dnsutils lsb-release chrony lolcat -y
 
 apt update -y
 apt upgrade -y
