@@ -9,7 +9,8 @@ DOMAIN=$(cat /etc/vps-data/domain)
 echo "=> Memulai Instalasi & Konfigurasi Nginx..."
 apt install nginx -y >/dev/null 2>&1
 
-cat <<EOF > /etc/nginx/conf.d/xray.conf
+echo "" > /etc/nginx/sites-available/default
+cat <<EOF > /etc/nginx/sites-available/default
 server {
     listen 80;
     listen [::]:80;
@@ -57,7 +58,9 @@ server {
 EOF
 
 systemctl daemon-reload >/dev/null 2>&1
+nginx -t
 systemctl enable nginx >/dev/null 2>&1
+systemctl reload nginx >/dev/null 2>&1
 systemctl restart nginx >/dev/null 2>&1
 echo ""
 echo "✅ Instalasi & Konfigurasi Nginx Selesai!"
