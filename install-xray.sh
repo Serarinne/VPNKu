@@ -35,7 +35,8 @@ cat <<EOF > /usr/local/etc/xray/config.json
             "protocol": "vmess",
             "settings": {
                 "clients": [
-                    {"id": "60d9785f-0e59-4988-aee1-322351b4de7f", "alterId": 0, "level": 0, "security": "auto", "email": "Admin-WS"}
+{"id": "60d9785f-0e59-4988-aee1-322351b4de7f", "alterId": 0, "level": 0, "security": "auto", "email": "Admin-WS"}
+#USER_ACCOUNT
                 ]
             },
             "streamSettings": {
