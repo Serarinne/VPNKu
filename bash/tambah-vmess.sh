@@ -4,8 +4,6 @@ if [ "$(id -u)" -ne 0 ]; then
    exit 1
 fi
 
-CONFIG_PATH="/usr/local/etc/xray/config.json"
-
 read -p "Masukkan email untuk klien baru: " CLIENT_EMAIL
 
 if [ -z "$CLIENT_EMAIL" ]; then
@@ -13,18 +11,14 @@ if [ -z "$CLIENT_EMAIL" ]; then
     return
 fi
 
-if jq -e '.inbounds[0].settings.clients[] | select(.email == "'"$CLIENT_EMAIL"'")' $CONFIG_PATH > /dev/null; then
+if jq -e '.inbounds[0].settings.clients[] | select(.email == "'"$CLIENT_EMAIL"'")' /usr/local/etc/xray/config.json > /dev/null; then
     echo "Klien dengan email '$CLIENT_EMAIL' sudah ada."
     return
 fi
 
 NEW_UUID=$(xray uuid)
 
-NEW_CLIENT_JSON=$(jq -n --arg id "$NEW_UUID" --arg email "$CLIENT_EMAIL" '{id: $id, level: 0, alterId: 0, email: $email}')
-
-TEMP_JSON=$(jq '.inbounds[0].settings.clients += ['"$NEW_CLIENT_JSON"']' $CONFIG_PATH)
-
-echo "$TEMP_JSON" > $CONFIG_PATH
+sed -i '/#USER_ACCOUNT/a ,{"id": "'${NEW_UUID}'", "alterId": 0, "level": 0, "security": "auto", "email": "'${CLIENT_EMAIL}'"} # Akun-'${CLIENT_EMAIL}'' /usr/local/etc/xray/config.json
 
 echo "✅ Klien berhasil ditambahkan!"
 echo "   Email: $CLIENT_EMAIL"
