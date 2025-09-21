@@ -13,4 +13,4 @@ systemctl daemon-reload >/dev/null 2>&1
 systemctl start dropbear >/dev/null 2>&1
 systemctl restart dropbear >/dev/null 2>&1
 echo ""
-echo "✅ Instalasi & Konfigurasi OpenSSH Selesai!"
+echo "✅ Instalasi & Konfigurasi Dropbear Selesai!"
