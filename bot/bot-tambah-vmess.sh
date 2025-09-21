@@ -8,16 +8,14 @@ if [ -z "$CLIENT_EMAIL" ]; then
     return
 fi
 
-if jq -e '.inbounds[0].settings.clients[] | select(.email == "'"$CLIENT_EMAIL"'")' $CONFIG_PATH > /dev/null; then
-    echo "Klien dengan email '$CLIENT_EMAIL' sudah ada."
-    return
+CLIENT_EXISTS=$(grep -w $CLIENT_EMAIL /usr/local/etc/xray/config.json | wc -l)
+
+if [[ ${CLIENT_EXISTS} == '1' ]]; then
+   echo "Klien dengan email '$CLIENT_EMAIL' sudah ada."
+   return
 fi
 
-NEW_CLIENT_JSON=$(jq -n --arg id "$NEW_UUID" --arg email "$CLIENT_EMAIL" '{id: $id, level: 0, alterId: 0, email: $email}')
-
-TEMP_JSON=$(jq '.inbounds[0].settings.clients += ['"$NEW_CLIENT_JSON"']' $CONFIG_PATH)
-
-echo "$TEMP_JSON" > $CONFIG_PATH
+sed -i '/#USER_ACCOUNT/a ,{"id": "'${NEW_UUID}'", "alterId": 0, "level": 0, "security": "auto", "email": "'${CLIENT_EMAIL}'"} # Akun-'${CLIENT_EMAIL}'' /usr/local/etc/xray/config.json
 
 echo "1"
 
