@@ -53,21 +53,6 @@ server {
         proxy_set_header X-Real-IP \$remote_addr;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
     }
-    
-    # Lokasi untuk VMess TLS WebSocket
-    location /vmess-tls {
-        if (\$http_upgrade != "websocket") {
-            return 404;
-        }
-        proxy_pass http://127.0.0.1:7002;
-        proxy_redirect off;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host \$host;
-        proxy_set_header X-Real-IP \$remote_addr;
-        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-    }
 }
 EOF
 
