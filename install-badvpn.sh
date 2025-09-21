@@ -1,16 +1,15 @@
 #!/bin/bash
 if [ "$(id -u)" -ne 0 ]; then
-   echo "Skrip ini harus dijalankan sebagai root" 1>&2
+   echo "Skrip ini harus dijalankan sebagai root"
    exit 1
 fi
 
 PORTS=(7300 7200 7100)
-SERVICE_FILE="/etc/systemd/system/badvpn-udpgw@.service"
 
-echo "=> Memulai Instalasi & Konfigurasi BadVPN..."
+echo "=> Memulai Instalasi & Konfigurasi BadVPN UDP Gateway..."
 wget -q -O /usr/local/bin/badvpn-udpgw "https://raw.githubusercontent.com/Serarinne/VPNKu/main/badvpn" >/dev/null 2>&1 && chmod +x /usr/local/bin/badvpn-udpgw
 
-cat <<EOF > "$SERVICE_FILE"
+cat <<EOF > /etc/systemd/system/badvpn-udpgw@.service
 [Unit]
 Description=BadVPN UDP Gateway for Port %I
 After=network.target
@@ -34,5 +33,6 @@ for PORT in "${PORTS[@]}"; do
   systemctl start "badvpn-udpgw@${PORT}" >/dev/null 2>&1
   systemctl restart "badvpn-udpgw@${PORT}" >/dev/null 2>&1
 done
+
 echo ""
 echo "✅ Instalasi & Konfigurasi BadVPN UDP Gateway Selesai!"
