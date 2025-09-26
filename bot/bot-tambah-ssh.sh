@@ -1,6 +1,6 @@
 #!/bin/bash
-USERNAME = $1
-PASSWORD = $2
+USERNAME=$1
+PASSWORD=$2
 
 if id "$USERNAME" &>/dev/null; then
     echo "Pengguna '$USERNAME' sudah ada. Silakan pilih nama lain."
