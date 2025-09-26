@@ -1,5 +1,5 @@
 #!/bin/bash
-USERNAME=$1
+USERNAME="ssh-${1}"
 PASSWORD=$2
 
 if id "${USERNAME}" &>/dev/null; then
