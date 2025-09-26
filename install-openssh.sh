@@ -6,7 +6,6 @@ fi
 
 echo "=> Memulai Instalasi & Konfigurasi OpenSSH..."
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 2253' /etc/ssh/sshd_config
 echo "Port 22" >> /etc/ssh/sshd_config
 echo "Port 40000" >> /etc/ssh/sshd_config
@@ -15,11 +14,7 @@ echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-sed -i 's/#AllowTcpForwarding yes/AllowTcpForwarding yes/g' /etc/ssh/sshd_config
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 
-systemctl daemon-reload >/dev/null 2>&1
-systemctl start ssh >/dev/null 2>&1
 systemctl restart ssh >/dev/null 2>&1
 echo ""
 echo "✅ Instalasi & Konfigurasi OpenSSH Selesai!"
