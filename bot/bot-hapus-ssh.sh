@@ -6,6 +6,6 @@ if ! id "${USERNAME}" &>/dev/null; then
     exit 1
 fi
 
-deluser --remove-home "${USERNAME}"
+deluser --remove-home "${USERNAME}" &>/dev/null
 
 echo "1"
