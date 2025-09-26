@@ -6,7 +6,7 @@ fi
 
 echo "=> Memulai Instalasi & Konfigurasi Dropbear..."
 apt install dropbear -y >/dev/null 2>&1
-echo 'NO_START=0' >> /etc/default/dropbea
+echo 'NO_START=0' >> /etc/default/dropbear
 echo 'DROPBEAR_PORT=143' >> /etc/default/dropbear
 echo 'DROPBEAR_EXTRA_ARGS="-p 109"' >> /etc/default/dropbear
 systemctl daemon-reload >/dev/null 2>&1
