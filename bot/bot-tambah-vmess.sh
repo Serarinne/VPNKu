@@ -11,7 +11,7 @@ fi
 CLIENT_EXISTS=$(grep -w $CLIENT_EMAIL /usr/local/etc/xray/config.json | wc -l)
 
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
-   echo "Klien dengan email '$CLIENT_EMAIL' sudah ada."
+   echo "Klien dengan email '${CLIENT_EMAIL}' sudah ada."
    return
 fi
 
