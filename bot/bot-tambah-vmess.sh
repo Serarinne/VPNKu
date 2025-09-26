@@ -1,7 +1,7 @@
 #!/bin/bash
 CONFIG_PATH="/usr/local/etc/xray/config.json"
-CLIENT_EMAIL = $1
-NEW_UUID = $2
+CLIENT_EMAIL=$1
+NEW_UUID=$2
 
 if [ -z "$CLIENT_EMAIL" ]; then
     echo "Email tidak boleh kosong."
