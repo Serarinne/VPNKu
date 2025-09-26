@@ -3,12 +3,12 @@ CONFIG_PATH="/usr/local/etc/xray/config.json"
 CLIENT_EMAIL=$1
 NEW_UUID=$2
 
-if [ -z "$CLIENT_EMAIL" ]; then
+if [ -z "${CLIENT_EMAIL}" ]; then
     echo "Email tidak boleh kosong."
     return
 fi
 
-CLIENT_EXISTS=$(grep -w $CLIENT_EMAIL /usr/local/etc/xray/config.json | wc -l)
+CLIENT_EXISTS=$(grep -w ${CLIENT_EMAIL} /usr/local/etc/xray/config.json | wc -l)
 
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
    echo "Klien dengan email '${CLIENT_EMAIL}' sudah ada."
