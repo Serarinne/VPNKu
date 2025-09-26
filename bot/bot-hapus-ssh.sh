@@ -1,5 +1,5 @@
 #!/bin/bash
-USERNAME = $1
+USERNAME=$1
 
 if ! id "$USERNAME" &>/dev/null; then
     echo "Pengguna '$USERNAME' tidak ditemukan."
