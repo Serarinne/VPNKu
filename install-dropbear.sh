@@ -5,7 +5,12 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 echo "=> Memulai Instalasi & Konfigurasi Dropbear..."
-apt install dropbear -y >/dev/null 2>&1
+wget https://matt.ucc.asn.au/dropbear/releases/dropbear-2025.89.tar.bz2 -y >/dev/null 2>&1
+tar -xzf dropbear-2019.78.tar.gz
+cd dropbear-2019.78
+./configure
+make
+make install
 echo 'NO_START=0' >> /etc/default/dropbear
 echo 'DROPBEAR_PORT=143' >> /etc/default/dropbear
 echo 'DROPBEAR_EXTRA_ARGS="-p 109"' >> /etc/default/dropbear
