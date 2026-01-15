@@ -5,7 +5,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 echo "=> Memulai Instalasi & Konfigurasi WebSocket Proxy (Python)..."
-wget -q -O /usr/local/bin/ws-proxy "https://raw.githubusercontent.com/Serarinne/VPNKu/main/ws-proxy" >/dev/null 2>&1 && chmod +x /usr/local/bin/ws-proxy
+wget --inet4-only -q -O /usr/local/bin/ws-proxy "https://raw.githubusercontent.com/Serarinne/VPNKu/main/ws-proxy" >/dev/null 2>&1 && chmod +x /usr/local/bin/ws-proxy
 cat > /etc/systemd/system/ws-proxy.service << END
 [Unit]
 Description=Websocket Tunnel
