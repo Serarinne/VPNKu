@@ -54,7 +54,7 @@ echo -e "-----------------------------------------"
 echo -e "|                OpenSSH                |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-openssh.sh >/dev/null 2>&1 && chmod +x install-openssh.sh && ./install-openssh.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-openssh.sh >/dev/null 2>&1 && chmod +x install-openssh.sh && ./install-openssh.sh
 
 sleep 2
 clear
@@ -62,7 +62,7 @@ echo -e "-----------------------------------------"
 echo -e "|               Dropbear                |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-dropbear.sh >/dev/null 2>&1 && chmod +x install-dropbear.sh && ./install-dropbear.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-dropbear.sh >/dev/null 2>&1 && chmod +x install-dropbear.sh && ./install-dropbear.sh
 
 sleep 2
 clear
@@ -70,7 +70,7 @@ echo -e "-----------------------------------------"
 echo -e "|                STunnel                |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-stunnel.sh >/dev/null 2>&1 && chmod +x install-stunnel.sh && ./install-stunnel.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-stunnel.sh >/dev/null 2>&1 && chmod +x install-stunnel.sh && ./install-stunnel.sh
 
 sleep 2
 clear
@@ -78,7 +78,7 @@ echo -e "-----------------------------------------"
 echo -e "|       WebSocket Proxy (Python)        |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-ws-proxy.sh >/dev/null 2>&1 && chmod +x install-ws-proxy.sh && ./install-ws-proxy.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-ws-proxy.sh >/dev/null 2>&1 && chmod +x install-ws-proxy.sh && ./install-ws-proxy.sh
 
 sleep 2
 clear
@@ -86,7 +86,7 @@ echo -e "-----------------------------------------"
 echo -e "|                BadVPN                 |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-badvpn.sh >/dev/null 2>&1 && chmod +x install-badvpn.sh && ./install-badvpn.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-badvpn.sh >/dev/null 2>&1 && chmod +x install-badvpn.sh && ./install-badvpn.sh
 
 sleep 2
 clear
@@ -94,7 +94,7 @@ echo -e "-----------------------------------------"
 echo -e "|              XRAY-Core                |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-xray.sh >/dev/null 2>&1 && chmod +x install-xray.sh && ./install-xray.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-xray.sh >/dev/null 2>&1 && chmod +x install-xray.sh && ./install-xray.sh
 
 sleep 2
 clear
@@ -102,7 +102,7 @@ echo -e "-----------------------------------------"
 echo -e "|                Nginx                  |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-nginx.sh >/dev/null 2>&1 && chmod +x install-nginx.sh && ./install-nginx.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/install-nginx.sh >/dev/null 2>&1 && chmod +x install-nginx.sh && ./install-nginx.sh
 
 sleep 2
 clear
@@ -110,7 +110,7 @@ echo -e "-----------------------------------------"
 echo -e "|               Optimasi                |"
 echo -e "-----------------------------------------"
 sleep 1
-wget -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/optimasi-sistem.sh >/dev/null 2>&1 && chmod +x optimasi-sistem.sh && ./optimasi-sistem.sh
+wget -q --inet4-only https://raw.githubusercontent.com/Serarinne/VPNKu/main/optimasi-sistem.sh >/dev/null 2>&1 && chmod +x optimasi-sistem.sh && ./optimasi-sistem.sh
 
 sleep 2
 clear
@@ -120,22 +120,22 @@ echo -e "-----------------------------------------"
 echo ""
 sleep 1
 echo "=> Tambah Akun SSH"
-wget -O /usr/bin/tambah-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/tambah-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/tambah-ssh
+wget --inet4-only -O /usr/bin/tambah-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/tambah-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/tambah-ssh
 echo "=> Hapus Akun SSH"
-wget -O /usr/bin/hapus-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/hapus-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/hapus-ssh
+wget --inet4-only -O /usr/bin/hapus-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/hapus-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/hapus-ssh
 echo "=> Tambah Akun VMESS"
-wget -O /usr/bin/tambah-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/tambah-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/tambah-vmess
+wget --inet4-only -O /usr/bin/tambah-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/tambah-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/tambah-vmess
 echo "=> Hapus Akun VMESS"
-wget -O /usr/bin/hapus-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/hapus-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/hapus-vmess
+wget --inet4-only -O /usr/bin/hapus-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bash/hapus-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/hapus-vmess
 
 echo "=> Bot Tambah Akun SSH"
-wget -O /usr/bin/bot-tambah-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-tambah-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-tambah-ssh
+wget --inet4-only -O /usr/bin/bot-tambah-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-tambah-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-tambah-ssh
 echo "=> Bot Hapus Akun SSH"
-wget -O /usr/bin/bot-hapus-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-hapus-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-hapus-ssh
+wget --inet4-only -O /usr/bin/bot-hapus-ssh -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-hapus-ssh.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-hapus-ssh
 echo "=> Bot Tambah Akun VMESS"
-wget -O /usr/bin/bot-tambah-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-tambah-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-tambah-vmess
+wget --inet4-only -O /usr/bin/bot-tambah-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-tambah-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-tambah-vmess
 echo "=> Bot Hapus Akun VMESS"
-wget -O /usr/bin/bot-hapus-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-hapus-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-hapus-vmess
+wget --inet4-only -O /usr/bin/bot-hapus-vmess -q https://raw.githubusercontent.com/Serarinne/VPNKu/main/bot/bot-hapus-vmess.sh >/dev/null 2>&1 && chmod +x /usr/bin/bot-hapus-vmess
 
 read -p "$(echo -e "Tekan [Enter] untuk Reboot")"
 reboot
