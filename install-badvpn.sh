@@ -7,7 +7,7 @@ fi
 PORTS=(7300 7200 7100)
 
 echo "=> Memulai Instalasi & Konfigurasi BadVPN UDP Gateway..."
-wget -q -O /usr/local/bin/badvpn-udpgw "https://raw.githubusercontent.com/Serarinne/VPNKu/main/badvpn" >/dev/null 2>&1 && chmod +x /usr/local/bin/badvpn-udpgw
+wget --inet4-only -q -O /usr/local/bin/badvpn-udpgw "https://raw.githubusercontent.com/Serarinne/VPNKu/main/badvpn" >/dev/null 2>&1 && chmod +x /usr/local/bin/badvpn-udpgw
 
 cat <<EOF > /etc/systemd/system/badvpn-udpgw@.service
 [Unit]
