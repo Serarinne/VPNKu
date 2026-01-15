@@ -5,7 +5,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 echo "=> Memulai Instalasi & Konfigurasi Dropbear..."
-wget http://matt.ucc.asn.au/dropbear/releases/dropbear-2019.78.tar.bz2 >/dev/null 2>&1
+wget --inet4-only http://matt.ucc.asn.au/dropbear/releases/dropbear-2019.78.tar.bz2 >/dev/null 2>&1
 tar -xvf dropbear-2019.78.tar.bz2
 cd dropbear-2019.78
 ./configure
