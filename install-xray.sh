@@ -46,6 +46,43 @@ cat <<EOF > /usr/local/etc/xray/config.json
                 }
             },
             "tag": "Vmess-Connection"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 7002,
+            "protocol": "trojan",
+            "settings": {
+                "clients": [
+                    {"password": "Admin-GRPC", "level": 0, "email": "Admin-Trojan-GRPC"}
+                    #USER_ACCOUNT
+                ]
+            },
+            "streamSettings": {
+                "network": "grpc",
+                "grpcSettings": {
+                    "serviceName": "trojan-grpc"
+                }
+            },
+            "tag": "Trojan-GRPC-Connection"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 7003,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {"id": "60d9785f-0e59-4988-aee1-322351b4de7f", "level": 0, "email": "Admin-VLESS-GRPC"}
+                    #USER_ACCOUNT
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "grpc",
+                "grpcSettings": {
+                    "serviceName": "vless-grpc"
+                }
+            },
+            "tag": "VLESS-GRPC-Connection"
         }
     ],
     "outbounds": [
