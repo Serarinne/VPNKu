@@ -42,11 +42,13 @@ rm -f /etc/vps-data/domain
 echo $SERVER_NAME > /etc/vps-data/name
 echo $SERVER_DOMAIN > /etc/vps-data/domain
 
-curl https://get.acme.sh | sh -s email=admin@seras.my.id
+#curl https://get.acme.sh | sh -s email=admin@seras.my.id
 
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d $SERVER_DOMAIN --standalone -k ec-256
-/root/.acme.sh/acme.sh --install-cert -d $SERVER_DOMAIN --fullchain-file /etc/vps-data/cert.crt --key-file /etc/vps-data/cert.key --ecc
+#/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+#/root/.acme.sh/acme.sh --issue -d $SERVER_DOMAIN --standalone -k ec-256
+#/root/.acme.sh/acme.sh --install-cert -d $SERVER_DOMAIN --fullchain-file /etc/vps-data/cert.crt --key-file /etc/vps-data/cert.key --ecc
+
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/vps-data/cert.key -out /etc/vps-data/cert.crt -subj "/C=ID/ST=Jawa Barat/L=Bogor/O=Serarinne/OU=VPN/CN=${SERVER_DOMAIN}"
 
 sleep 2
 clear
