@@ -14,8 +14,8 @@ cat <<EOF > /etc/nginx/sites-available/default
 server {
     listen 80;
     listen [::]:80;
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
     server_name _;
 
     ssl_certificate /etc/vps-data/cert.crt;
@@ -53,6 +53,50 @@ server {
         proxy_set_header Host \$host;
         proxy_set_header X-Real-IP \$remote_addr;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+    }
+
+    # Lokasi untuk Trojan gRPC
+    location /trojan-grpc {
+        if (\$content_type !~ "application/grpc") {
+            return 404;
+        }
+        
+        client_max_body_size 0;
+        client_body_buffer_size 512k;
+        grpc_read_timeout 1h;
+        grpc_send_timeout 1h;
+        client_body_timeout 1h;
+
+        grpc_socket_keepalive on;
+        
+        grpc_set_header Host \$host;
+        grpc_set_header X-Real-IP \$remote_addr;
+        grpc_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        grpc_set_header X-Forwarded-Proto \$scheme;
+        
+        grpc_pass grpc://127.0.0.1:7002;
+    }
+
+    # Lokasi untuk VLESS gRPC
+    location /vless-grpc {
+        if (\$content_type !~ "application/grpc") {
+            return 404;
+        }
+
+        client_max_body_size 0;
+        client_body_buffer_size 512k;
+        grpc_read_timeout 1h;
+        grpc_send_timeout 1h;
+        client_body_timeout 1h;
+
+        grpc_socket_keepalive on;
+
+        grpc_set_header Host \$host;
+        grpc_set_header X-Real-IP \$remote_addr;
+        grpc_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        grpc_set_header X-Forwarded-Proto \$scheme;
+
+        grpc_pass grpc://127.0.0.1:7003;
     }
 }
 EOF
